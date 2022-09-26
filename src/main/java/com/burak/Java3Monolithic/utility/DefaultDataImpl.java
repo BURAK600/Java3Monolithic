@@ -5,6 +5,8 @@ import com.burak.Java3Monolithic.repository.ISatisRepository;
 import com.burak.Java3Monolithic.repository.IUrunRepository;
 import com.burak.Java3Monolithic.repository.entity.Musteri;
 import com.burak.Java3Monolithic.repository.entity.Urun;
+import com.burak.Java3Monolithic.service.MusteriService;
+import com.burak.Java3Monolithic.service.UrunService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +17,9 @@ import java.util.Arrays;
 @Component
 public class DefaultDataImpl {
 
-    private final IMusteriRepository iMusteriRepository;
-    private final IUrunRepository iUrunRepository;
-    private final ISatisRepository iSatisRepository;
+    private final MusteriService musteriService;
+    private final UrunService urunService;
+
 
     @PostConstruct
     private void create(){
@@ -63,7 +65,7 @@ public class DefaultDataImpl {
                 .dogumtarihi(1991)
                 .email("ayse@gmail.com").build();
 
-        iMusteriRepository.saveAll(Arrays.asList(musteri,musteri1,musteri2,musteri3,musteri4));
+        musteriService.saveAll(Arrays.asList(musteri,musteri1,musteri2,musteri3,musteri4));
     }
 
     public void saveUrun(){
@@ -75,7 +77,7 @@ public class DefaultDataImpl {
         Urun urun5 = Urun.builder().ad("çay").fiyat(123.0).isActive(true).marka("t marka").model("t model").stok(50).build();
         Urun urun6 = Urun.builder().ad("kola").fiyat(1000.0).isActive(true).marka("e marka").model("w model").stok(50).build();
 
-        iUrunRepository.saveAll(Arrays.asList(urun,urun1,urun2,urun3,urun4,urun5,urun6));
+        urunService.saveAll(Arrays.asList(urun,urun1,urun2,urun3,urun4,urun5,urun6));
     }
 
 

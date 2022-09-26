@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Urun extends Default {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String ad;
     String marka;

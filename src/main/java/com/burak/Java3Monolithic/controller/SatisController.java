@@ -1,8 +1,10 @@
 package com.burak.Java3Monolithic.controller;
 
+import com.burak.Java3Monolithic.repository.entity.Satis;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import static com.burak.Java3Monolithic.constants.EndPoints.*;
 
 /**
  * RestAPI yazmak için kullanılır.
@@ -11,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
  * URL adresler -> endpointler
  */
 @RestController
-@RequestMapping("/satis")
+@RequestMapping(VERSION+API+ SATIS)
 public class SatisController {
 
 
-    @GetMapping("/save")
+    @GetMapping(SAVE)
     public String save(){
         return "kayıt başarılı";
     }
 
-    @GetMapping("/update")
+    @GetMapping(UPDATE)
     public String updateIslemiYap(){
         return "Guncelleme başarılı";
     }

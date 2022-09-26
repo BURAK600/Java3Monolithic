@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.burak.Java3Monolithic.constants.EndPoints.*;
+
 @RestController
-@RequestMapping("/musteri")
+@RequestMapping(VERSION+API+MUSTERI)
 @RequiredArgsConstructor
 public class MusteriController {
     private final MusteriService musteriService;
 
 
-    @GetMapping("/save")
+    @GetMapping(SAVE)
     public String saveMusteri(String ad, String soyad, String adres){
         Musteri musteri = Musteri.builder().ad(ad).soyad(soyad).adres(adres)
 
@@ -28,7 +30,7 @@ public class MusteriController {
 
 
     }
-    @GetMapping("/findall")
+    @GetMapping(GETALL)
     public ResponseEntity<List<Musteri>> findAll(){
         return ResponseEntity.ok(musteriService.findAll());
     }

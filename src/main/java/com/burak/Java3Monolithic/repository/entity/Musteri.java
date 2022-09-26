@@ -19,7 +19,7 @@ public class Musteri extends Default {
      * parametreli ve parametresiz constructor
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String ad;
     String soyad;
@@ -28,6 +28,7 @@ public class Musteri extends Default {
     int dogumtarihi;
     String email;
     String username;
+
 
 
 

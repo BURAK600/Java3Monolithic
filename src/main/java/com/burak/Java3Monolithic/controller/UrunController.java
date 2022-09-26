@@ -1,5 +1,6 @@
 package com.burak.Java3Monolithic.controller;
 
+import com.burak.Java3Monolithic.dto.response.UrunGetFindByIdResponseDto;
 import com.burak.Java3Monolithic.repository.entity.Urun;
 import com.burak.Java3Monolithic.service.UrunService;
 import lombok.RequiredArgsConstructor;
@@ -9,14 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.burak.Java3Monolithic.constants.EndPoints.*;
+
 @RestController
-@RequestMapping("/urun")
+@RequestMapping(VERSION+API+URUN)
 @RequiredArgsConstructor
 public class UrunController {
 
     private final UrunService urunService;
 
-    @GetMapping("/save")
+    @GetMapping(SAVE)
     public String save(String ad, String marka, String model, Double fiyat, Integer stok){
 
         Urun urun =Urun.builder().ad(ad).marka(marka).model(model).fiyat(fiyat).stok(stok)
@@ -25,9 +28,13 @@ public class UrunController {
         return "Ürün kaydedildi";
 
     }
+    @GetMapping(FINDBYID)
+    public UrunGetFindByIdResponseDto getFindId(Long id){
+        return urunService.findByIdDto(id);
+    }
 
 
-    @GetMapping("/findall")
+    @GetMapping(GETALL)
     public List<Urun> findAll(){
       return  urunService.findAll();
 

@@ -27,6 +27,7 @@ public class ServiceManager<T extends Default, ID> implements IService<T, ID> {
 
     @Override
     public Iterable<T> saveAll(Iterable<T> t) {
+        t.forEach(x -> x.setCreateDate(System.currentTimeMillis()));
         return repository.saveAll(t);
     }
 

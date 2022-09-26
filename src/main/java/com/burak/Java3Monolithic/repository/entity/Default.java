@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass //!!! Önemli !!!
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,5 +17,6 @@ public class Default {
     boolean isActive;
     Long createDate;
     Long updateDate;
+
 
 }
