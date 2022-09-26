@@ -39,4 +39,6 @@ public class MusteriService extends ServiceManager<Musteri, Long> {
     }
 
 
+
+
 }
