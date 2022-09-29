@@ -1,6 +1,7 @@
 package com.burak.Java3Monolithic.mapper;
 
 
+import com.burak.Java3Monolithic.dto.response.MusteriFindByIdResponseDto;
 import com.burak.Java3Monolithic.repository.entity.Musteri;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -22,6 +23,8 @@ public interface IMusteriMapper {
      * Buradan itibaren ilgili nesnelerin değerleri birbirine atanır.
      *
      */
+
+    MusteriFindByIdResponseDto toMusteriFindByIdResponseDto(Musteri musteri);
 
 
 }

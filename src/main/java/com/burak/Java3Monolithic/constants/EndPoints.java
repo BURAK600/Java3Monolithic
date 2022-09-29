@@ -9,11 +9,12 @@ public class EndPoints {
      *
      */
 
-    public static final String VERSION = "/mkv1";
-
-
+    public static final String VERSION = "/mkv";
     public static final String WEB = "/web";
     public static final String API = "/api";
+
+
+
     /**
      * Tüm controller sınıfları icin EndPoint listesi
      *       http://localhost:9090/mkv1/web
@@ -36,11 +37,19 @@ public class EndPoints {
     public static final String GETALL = "/getall";
     public static final String GETBYID = "/getbyid";
     public static final String FINDALL = "/findall";
+    public static final String FINDBYIDDTO = "/findbyiddto";
     public static final String FINDBYID = "/findbyid";
+
 
     /**
      * MUSTERİ işlemleri EndPointleri
      */
 
     public static final String FINDBYNAMEANDSURNAME = "/findbynameandsurname";
+
+    /**
+     * Urun işlemleri End Point leri
+     *
+     */
+    public static final String URUNSAVEDTO = "/savedto";
 }

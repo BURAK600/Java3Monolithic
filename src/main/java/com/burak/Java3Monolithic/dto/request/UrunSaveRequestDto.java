@@ -1,4 +1,4 @@
-package com.burak.Java3Monolithic.dto.response;
+package com.burak.Java3Monolithic.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,10 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UrunGetFindByIdResponseDto {
+public class UrunSaveRequestDto {
 
     String ad;
     String marka;
     String model;
+    Double fiyat;
+    Integer stok;
+
 
 }

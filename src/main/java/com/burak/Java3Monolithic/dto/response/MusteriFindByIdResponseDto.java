@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UrunGetFindByIdResponseDto {
-
+public class MusteriFindByIdResponseDto {
     String ad;
-    String marka;
-    String model;
+    String soyad;
+    String adres;
 
 }

@@ -28,6 +28,7 @@ public class Musteri extends Default {
     int dogumtarihi;
     String email;
     String username;
+    String password;
 
 
 

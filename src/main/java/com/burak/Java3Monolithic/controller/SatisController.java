@@ -26,4 +26,9 @@ public class SatisController {
     public String updateIslemiYap(){
         return "Guncelleme başarılı";
     }
+
+    @GetMapping("/hataolustur")
+    public String hataOlustur(){
+        throw new RuntimeException("Hata oluştu beklenmeyen bir durum ilginç!!!");
+    }
 }

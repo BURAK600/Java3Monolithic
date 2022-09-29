@@ -20,6 +20,9 @@ import java.util.Optional;
 @Repository
 public interface IMusteriRepository extends JpaRepository<Musteri, Long> {
 
+
+
+
     /**
      * Dikkat!!!
      *
@@ -175,15 +178,10 @@ public interface IMusteriRepository extends JpaRepository<Musteri, Long> {
     );
 
 
+    Optional<Musteri> findByUsernameAndPassword(String username, String password);
 
-
-
-
-
-
-
-
-
+    @Query("select count(m)>0 from Musteri m where UPPER(m.username) = UPPER(?1) and m.password=?2")
+    Boolean isExistMusteri(String username, String password);
 
 
 

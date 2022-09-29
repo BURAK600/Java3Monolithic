@@ -1,5 +1,6 @@
 package com.burak.Java3Monolithic.controller;
 
+import com.burak.Java3Monolithic.dto.request.UrunSaveRequestDto;
 import com.burak.Java3Monolithic.dto.response.UrunGetFindByIdResponseDto;
 import com.burak.Java3Monolithic.repository.entity.Urun;
 import com.burak.Java3Monolithic.service.UrunService;
@@ -28,8 +29,21 @@ public class UrunController {
         return "Ürün kaydedildi";
 
     }
+
+    @GetMapping(URUNSAVEDTO)
+    public String save(UrunSaveRequestDto dto){
+        urunService.save(dto);
+        return "Urundto kaydedildi.";
+
+    }
+
     @GetMapping(FINDBYID)
+    public Urun findById(Long id){
+        return urunService.findById(id);
+    }
+    @GetMapping(FINDBYIDDTO)
     public UrunGetFindByIdResponseDto getFindId(Long id){
+
         return urunService.findByIdDto(id);
     }
 

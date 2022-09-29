@@ -16,6 +16,11 @@ import java.util.List;
  */
 @Service
 public class MusteriService extends ServiceManager<Musteri, Long> {
+
+    public Boolean isExistUser(String username, String password){
+        return iMusteriRepository.isExistMusteri(username,password);
+    }
+
     /**
      * interface olarak eklediğimiz Service ya da Repository gibi sınıflarından intance almak için Spring @Autowired
      * annotaion ını kullanabiliriz.
