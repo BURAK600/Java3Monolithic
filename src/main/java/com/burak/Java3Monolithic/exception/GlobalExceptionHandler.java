@@ -26,29 +26,26 @@ public class GlobalExceptionHandler {
      * log lanması yada farklı işlemelere tabi tutulması için ayrıca bir methosd kullanmak
      * daha doğru olacaktır.
      */
-    private ErrorMessage createError(ErrorType errorType, Exception exception){
-        System.out.println("Hata oluştu..: "+exception.getMessage());
+    private ErrorMessage createError(ErrorType errorType, Exception exception) {
+        System.out.println("Hata oluştu..: " + exception.getMessage());
         return ErrorMessage.builder()
                 .code(errorType.getCode())
                 .message(errorType.getMessage())
                 .build();
     }
 
-
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
-    public ResponseEntity<String> handleRuntimeException(RuntimeException ex){
-        return ResponseEntity.badRequest().body("Beklenmeyen bir hata oldu..: "+ex.getMessage());
+    public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
+        return ResponseEntity.badRequest().body("Beklenmeyen bir hata oldu..: " + ex.getMessage());
     }
-
-
 
     @ExceptionHandler(MonolitichManagerException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handleMonolitichException(MonolitichManagerException ex){
+    public ResponseEntity<ErrorMessage> handleMonolitichException(MonolitichManagerException ex) {
         ErrorType errorType = ex.getErrorType();
         HttpStatus httpStatus = errorType.getHttpStatus();
-        return new ResponseEntity(createError(errorType,ex),httpStatus);
+        return new ResponseEntity(createError(errorType, ex), httpStatus);
     }
 
 
@@ -68,7 +65,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(createError(errorType, exception), errorType.getHttpStatus());
     }
 
-
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseBody
     public final ResponseEntity<ErrorMessage> handleMethodArgumentMisMatchException(
@@ -77,7 +73,6 @@ public class GlobalExceptionHandler {
         ErrorType errorType = BAD_REQUEST_ERROR;
         return new ResponseEntity<>(createError(errorType, exception), errorType.getHttpStatus());
     }
-
     @ExceptionHandler(MissingPathVariableException.class)
     @ResponseBody
     public final ResponseEntity<ErrorMessage> handleMethodArgumentMisMatchException(
@@ -86,8 +81,6 @@ public class GlobalExceptionHandler {
         ErrorType errorType = BAD_REQUEST_ERROR;
         return new ResponseEntity<>(createError(errorType, exception), errorType.getHttpStatus());
     }
-
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     public final ResponseEntity<ErrorMessage> handleMethodArgumentNotValidException(
@@ -103,9 +96,6 @@ public class GlobalExceptionHandler {
         errorMessage.setFields(fields);
         return new ResponseEntity<>(errorMessage, errorType.getHttpStatus());
     }
-
-
-
 
 }
 

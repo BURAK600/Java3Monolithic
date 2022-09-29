@@ -17,7 +17,7 @@ public class LoginMvcController {
     private final MusteriService musteriService;
 
     @GetMapping("/loginpage")
-    public ModelAndView loginGirisSayfasi(){
+    public ModelAndView loginGirisSayfasi() {
 
         /**
          * 1- Önce modelAndView nesnesi oluşturulur.
@@ -26,7 +26,7 @@ public class LoginMvcController {
 
         String ka = "Kullanıcı Adı";
 
-        String sfr= "Şifre";
+        String sfr = "Şifre";
 
         ModelAndView modelAndView = new ModelAndView();
 
@@ -42,30 +42,33 @@ public class LoginMvcController {
     }
 
     @PostMapping("/dologin")
-    public ModelAndView doLogin(String txtkullaniciadi, String txtsifre){
+    public ModelAndView doLogin(String txtkullaniciadi, String txtsifre) {
 
-        if(musteriService.isExistUser(txtkullaniciadi,txtsifre)){
+        if (musteriService.isExistUser(txtkullaniciadi, txtsifre)) {
             System.out.println("Giris başarılı.");
 
             return new ModelAndView("redirect:/home");
-        }else{
+        } else {
             System.out.println("Kullanıcı adı veya şifre hatalı");
 
-        }
 
-        return null;
+        }
+        return new ModelAndView("redirect:/login/loginpage");
+
+
     }
 
     @GetMapping("/registerpage")
-    public ModelAndView register(){
+    public ModelAndView register() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("register");
         return modelAndView;
     }
+
     @PostMapping("/doregister")
     public ModelAndView doregister(String email,
                                    String username,
-                                   String password){
+                                   String password) {
         musteriService.save(
                 Musteri.builder().email(email).username(username).password(password).build()
         );

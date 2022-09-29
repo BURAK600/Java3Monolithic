@@ -21,17 +21,13 @@ import java.util.Optional;
 public interface IMusteriRepository extends JpaRepository<Musteri, Long> {
 
 
-
-
     /**
      * Dikkat!!!
-     *
+     * <p>
      * Repository sınıfları içinde sorgu yazmak için özel kelimeleri kullanılır.
-     *
+     * <p>
      * 1- find : kelimesi yazılır
      * 2-
-     *
-     *
      */
 
     Musteri findByUsername(String userName);

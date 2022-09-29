@@ -18,7 +18,7 @@ public class HomeMvcController {
     private final UrunService urunService;
 
     @GetMapping("/home")
-    public ModelAndView home(){
+    public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
 
         HomeModel homeModel = HomeModel.builder().menuListesi(Arrays.asList("Ana Sayfa", "Ürünler", "Hakkımızda", "İletişim"))
